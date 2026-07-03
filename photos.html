@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos — Granada Crescent</title>
+<meta name="description" content="Photos of 1568 Granada Crescent.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Granada <span>Crescent</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendar.html">Availability</a></li>
+      <li><a href="photos.html" aria-current="page">Photos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 40px;">
+  <div class="wrap">
+    <span class="eyebrow">Around the property</span>
+    <h1 style="max-width: 18ch;">A look inside.</h1>
+    <p class="lede">
+      Every photo here is pulled straight from the <code>/photos</code>
+      folder in the site's repo — drop a new image in and it appears on
+      the next deploy.
+    </p>
+  </div>
+</header>
+
+<div class="tideline" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <div id="gallery" class="gallery" aria-live="polite">
+      <p class="gallery-empty">Loading photos&hellip;</p>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">Close &times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Granada Crescent</span>
+    <span>1568 Granada Crescent &middot; <a href="index.html">Home</a> &middot; <a href="calendar.html">Availability</a></span>
+  </div>
+</footer>
+
+<script src="js/photos.js"></script>
+</body>
+</html>

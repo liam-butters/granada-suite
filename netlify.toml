@@ -1,0 +1,8 @@
+[build]
+  command = "node scripts/generate-photos.js"
+  publish = "."
+
+[[headers]]
+  for = "/data/photos.json"
+  [headers.values]
+    Cache-Control = "no-cache"

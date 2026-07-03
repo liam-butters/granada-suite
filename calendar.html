@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Availability — Granada Crescent</title>
+<meta name="description" content="Check live availability for 1568 Granada Crescent.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Granada <span>Crescent</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendar.html" aria-current="page">Availability</a></li>
+      <li><a href="photos.html">Photos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 40px;">
+  <div class="wrap">
+    <span class="eyebrow">Live availability</span>
+    <h1 style="max-width: 20ch;">Booked, open, and everything between.</h1>
+    <p class="lede">
+      This calendar updates directly from the one we use to manage
+      reservations — no separate booking system to keep in sync.
+    </p>
+  </div>
+</header>
+
+<div class="tideline" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <div class="cal-panel">
+      <div class="cal-frame">
+        <!--
+          EDIT ME — replace YOUR_CALENDAR_ID_HERE below with your Google
+          Calendar's embed source.
+
+          How to get it:
+          1. On calendar.google.com, open Settings for the calendar you use
+             for bookings.
+          2. Under "Integrate calendar," copy the "Calendar ID"
+             (looks like abc123@group.calendar.google.com).
+          3. Make sure "Access permissions" has "Make available to public"
+             checked, set to "See only free/busy" if you don't want event
+             titles visible, or "See all event details" if you do.
+          4. Paste the ID in place of YOUR_CALENDAR_ID_HERE below (URL-encode
+             the @ as %40, already done for you here).
+        -->
+        <iframe
+          title="Availability calendar"
+          src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE%40group.calendar.google.com&ctz=America%2FVancouver&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+          style="border: 0;"
+          frameborder="0"
+          scrolling="no">
+        </iframe>
+      </div>
+      <div class="legend">
+        <span><i style="background:#A08768"></i> Booked</span>
+        <span><i style="background:#5A7D8C"></i> Open</span>
+      </div>
+    </div>
+
+    <p class="cal-note" style="margin-top: 1.5rem;">
+      Dates shown here reflect our booking calendar directly. To hold a
+      date, reach out through the contact info on the
+      <a href="index.html">home page</a> — we'll confirm and block the
+      calendar right away.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Granada Crescent</span>
+    <span>1568 Granada Crescent &middot; <a href="index.html">Home</a> &middot; <a href="photos.html">Photos</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
