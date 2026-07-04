@@ -1,0 +1,153 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Granada Crescent</title>
+  <meta name="description" content="Get in touch about 1568 Granada Crescent.">
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <a href="index.html" class="brand">Granada <span>Crescent</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calendar.html">Availability</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="contact.html" aria-current="page">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding-bottom: 40px;">
+    <div class="wrap" style="grid-template-columns: 1fr;">
+      <div class="hero-copy">
+        <span class="eyebrow">Get in touch</span>
+      <h1 style="max-width: 18ch;">Questions, dates, details.</h1>
+      <p class="lede">
+          Send a message and it'll land straight in our inbox - no need to
+          open your own email app.
+        </p>
+    </div>
+  </div>
+</header>
+
+<div class="tideline" aria-hidden="true"></div>
+
+<section>
+    <div class="wrap" style="max-width: 640px;">
+
+      <!--
+        This form is wired up to Netlify Forms - Netlify detects it
+      automatically on deploy (thanks to data-netlify="true"), no backend
+      code required.
+
+      EDIT ME / ONE-TIME SETUP: after this deploys, in the Netlify
+      dashboard go to Site settings -> Forms -> Form notifications, and add
+      an "Email notification" for each address that should receive
+        messages. Netlify does not know who should get these emails until you
+      add that there.
+      -->
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="contact-form">
+
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp-field">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="form-field">
+          <label for="dates">Dates you're interested in <span class="optional">(optional)</span></label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. Aug 14-18">
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="contact-submit">Send message</button>
+      </form>
+
+      <div id="form-success" class="form-notice form-success" hidden>
+        <strong>Thanks - that's sent.</strong> We'll get back to you shortly.
+      </div>
+
+      <div id="form-error" class="form-notice form-error" hidden>
+        <strong>Something went wrong.</strong> Mind trying again, or emailing
+      us directly at
+      <a href="mailto:liam@ecologyconsulting.ca">liam@ecologyconsulting.ca</a>?
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Granada Crescent</span>
+    <span>1568 Granada Crescent - <a href="index.html">Home</a> - <a href="calendar.html">Availability</a> - <a href="photos.html">Photos</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+    const successBox = document.getElementById('form-success');
+      const errorBox = document.getElementById('form-error');
+    const submitBtn = document.getElementById('contact-submit');
+
+    function encode(data) {
+      return Object.keys(data)
+          .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                .join('&');
+    }
+
+    form.addEventListener('submit', function (e) {
+            e.preventDefault();
+      errorBox.hidden = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(form);
+      const payload = {};
+      formData.forEach((value, key) => { payload[key] = value; });
+
+      fetch('/contact.html', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode(payload),
+        })
+                .then((res) => {
+                  if (!res.ok) throw new Error('Bad response');
+          form.hidden = true;
+          successBox.hidden = false;
+    })
+        .catch(() => {
+                    errorBox.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send message';
+});
+});
+})();
+</script>
+
+  </body>
+  </html>
+  
