@@ -450,3 +450,128 @@ footer .wrap {
   gap: 0.6em;
 }
 footer a { color: rgba(246,242,235,0.85); }
+
+
+/* ---------- hero photo (landing page) ---------- */
+
+.hero .wrap {
+     position: relative;
+     display: grid;
+     grid-template-columns: 1fr;
+     align-items: center;
+     gap: clamp(28px, 5vw, 56px);
+}
+
+/* Until a hero photo is found in /photos/hero, this stays a single centered
+   column so there's no empty gap waiting for an image. */
+.hero.has-photo .wrap {
+     grid-template-columns: 1.15fr 0.85fr;
+}
+
+.hero-photo { display: none; }
+
+.hero.has-photo .hero-photo {
+     display: block;
+     position: relative;
+}
+
+.hero-photo img {
+     width: 100%;
+     aspect-ratio: 4 / 5;
+     object-fit: cover;
+     display: block;
+     border-radius: 3px;
+     border: 1px solid rgba(246,242,235,0.3);
+     box-shadow: 0 24px 48px rgba(10, 20, 20, 0.4);
+}
+
+@media (max-width: 800px) {
+     .hero.has-photo .wrap {
+            grid-template-columns: 1fr;
+     }
+     .hero.has-photo .hero-photo {
+            order: -1;
+            max-width: 380px;
+            margin: 0 auto;
+     }
+}
+
+/* ---------- contact form ---------- */
+
+.contact-form {
+     margin-top: 2rem;
+     display: flex;
+     flex-direction: column;
+     gap: 1.4rem;
+}
+
+.hp-field { position: absolute; left: -9999px; }
+
+.form-field {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5em;
+}
+
+.form-field label {
+     font-family: var(--mono);
+     font-size: 0.75rem;
+     letter-spacing: 0.06em;
+     text-transform: uppercase;
+     color: var(--lowtide);
+}
+
+.form-field .optional {
+     text-transform: none;
+     letter-spacing: 0;
+     color: var(--driftwood);
+}
+
+.form-field input,
+.form-field textarea {
+     font-family: var(--body);
+     font-size: 1rem;
+     color: var(--ink);
+     background: #fff;
+     border: 1px solid rgba(28,58,58,0.2);
+     border-radius: 2px;
+     padding: 0.7em 0.9em;
+     resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+     outline: 2px solid var(--driftwood);
+     outline-offset: 1px;
+     border-color: var(--driftwood);
+}
+
+.contact-form .btn {
+     align-self: flex-start;
+     border: 0;
+     cursor: pointer;
+}
+.contact-form .btn:disabled {
+     opacity: 0.6;
+     cursor: default;
+     transform: none;
+}
+
+.form-notice {
+     margin-top: 2rem;
+     padding: 1.2em 1.4em;
+     border-radius: 3px;
+     font-size: 0.98rem;
+}
+
+.form-success {
+     background: var(--linen-deep);
+     border-left: 3px solid var(--fir);
+     color: var(--fir);
+}
+
+.form-error {
+     background: var(--linen-deep);
+     border-left: 3px solid #B5533C;
+     color: #7A3826;
+}
